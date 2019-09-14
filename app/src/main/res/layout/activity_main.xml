@@ -4,19 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#9FB4CC"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="252dp"
-        android:layout_height="133dp"
+        android:layout_width="319dp"
+        android:layout_height="91dp"
         android:layout_marginStart="71dp"
         android:layout_marginLeft="71dp"
-        android:layout_marginTop="86dp"
+        android:layout_marginTop="116dp"
         android:layout_marginEnd="88dp"
         android:layout_marginRight="88dp"
         android:text="Pet Patrol"
+        android:textSize="60sp"
+        app:fontFamily="sans-serif-smallcaps"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.239"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
