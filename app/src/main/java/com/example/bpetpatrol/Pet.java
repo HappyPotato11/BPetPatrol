@@ -1,5 +1,7 @@
 package com.example.bpetpatrol;
 
+import android.os.Parcelable;
+
 import androidx.annotation.NonNull;
 
 import com.google.firebase.database.DataSnapshot;
@@ -13,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 @SuppressWarnings("serial")
-public class Pet implements Serializable {
+public class Pet implements Serializable, Comparable {
     private String email;
 
     private String name;
@@ -48,9 +50,8 @@ public class Pet implements Serializable {
     }
 
     //constructor for making a FOUND pet (minus last seen date)
-    public Pet(String e, String n, Animal a, String br, ArrayList<Color> c, ColorShade cs,
+    public Pet(String n, Animal a, String br, ArrayList<Color> c, ColorShade cs,
                String lsl, Behavior be, String dc) {
-        email = e;
         name = n;
         animal = a;
         breed = br;
@@ -114,8 +115,14 @@ public class Pet implements Serializable {
         if (lostPet.getName().toLowerCase().equals(foundPet.getName().toLowerCase())) {
             similarCharacteristics++;
         }
+        else {
+            return false;
+        }
         if (lostPet.getAnimal() == foundPet.getAnimal()) {
             similarCharacteristics++;
+        }
+        else {
+            return false;
         }
         if (lostPet.getBreed().toLowerCase().equals(foundPet.getBreed().toLowerCase())) {
             similarCharacteristics++;
@@ -159,19 +166,14 @@ public class Pet implements Serializable {
         reff.child(email).setValue(pet);
     }
 
+    @Override
+    public int compareTo(Object p) {
+        Date compareDate = ((Pet)p).getLastSeenDate();
+        return (lastSeenDate.compareTo(compareDate))*(-1);
+    }
+
     // returns data snapshot for a particular lost pet (identified by phone number)
     public static void getLostData(String email) {
-        DatabaseReference reff = FirebaseDatabase.getInstance().getReference().child("Lost Pets").child(email);
-        reff.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Pet lostPet = dataSnapshot.getValue(Pet.class);
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                System.out.println("The read failed: " + databaseError.getCode());
-            }
-        });
     }
 }
