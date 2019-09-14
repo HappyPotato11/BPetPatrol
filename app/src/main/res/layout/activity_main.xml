@@ -20,6 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
+        android:onClick="goToSpinner"
         android:text="Lost"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         tools:layout_editor_absoluteX="160dp" />
@@ -29,7 +30,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="Button"
+        android:onClick="goToFound"
+        android:text="Found"
         app:layout_constraintTop_toBottomOf="@+id/button"
         tools:layout_editor_absoluteX="160dp" />
 

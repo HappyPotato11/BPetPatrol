@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -35,50 +36,57 @@ public class DisplaySimilarDogs extends AppCompatActivity {
         secondEmail = i.getStringExtra("second").replace(".","");
         thirdEmail = i.getStringExtra("third").replace(".","");
 
-        DatabaseReference reff = FirebaseDatabase.getInstance().getReference().child("Lost Pets").child(firstEmail);
-        reff.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                img1 = (ImageView)findViewById(R.id.imgPet1);
-                String downloadUrl = ((Pet)dataSnapshot.getValue()).getImage();
-                Picasso.get().load(downloadUrl).into(img1);
-            }
+        if (!firstEmail.equals("")) {
+            DatabaseReference reff = FirebaseDatabase.getInstance().getReference().child("Lost Pets").child(firstEmail);
+            reff.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    img1 = (ImageView)findViewById(R.id.imgPet1);
+                    String downloadUrl = ((Pet)dataSnapshot.getValue()).getImage();
+                    Picasso.get().load(downloadUrl).into(img1);
+                }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                System.out.println("The read failed: " + databaseError.getCode());
-            }
-        });
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    System.out.println("The read failed: " + databaseError.getCode());
+                }
+            });
+        }
 
-        DatabaseReference reff2 = FirebaseDatabase.getInstance().getReference().child("Lost Pets").child(secondEmail);
-        reff2.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                img2 = (ImageView)findViewById(R.id.imgPet2);
-                String downloadUrl = ((Pet)dataSnapshot.getValue()).getImage();
-                Picasso.get().load(downloadUrl).into(img2);
-            }
+        if (!secondEmail.equals("")) {
+            DatabaseReference reff2 = FirebaseDatabase.getInstance().getReference().child("Lost Pets").child(secondEmail);
+            reff2.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    img2 = (ImageView)findViewById(R.id.imgPet2);
+                    String downloadUrl = ((Pet)dataSnapshot.getValue()).getImage();
+                    Picasso.get().load(downloadUrl).into(img2);
+                }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                System.out.println("The read failed: " + databaseError.getCode());
-            }
-        });
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    System.out.println("The read failed: " + databaseError.getCode());
+                }
+            });
+        }
 
-        DatabaseReference reff3 = FirebaseDatabase.getInstance().getReference().child("Lost Pets").child(thirdEmail);
-        reff3.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                img3 = (ImageView)findViewById(R.id.imgPet3);
-                String downloadUrl = ((Pet)dataSnapshot.getValue()).getImage();
-                Picasso.get().load(downloadUrl).into(img3);
-            }
+        if (!thirdEmail.equals("")) {
+            DatabaseReference reff3 = FirebaseDatabase.getInstance().getReference().child("Lost Pets").child(thirdEmail);
+            reff3.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    img3 = (ImageView)findViewById(R.id.imgPet3);
+                    String downloadUrl = ((Pet)dataSnapshot.getValue()).getImage();
+                    Picasso.get().load(downloadUrl).into(img3);
+                }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                System.out.println("The read failed: " + databaseError.getCode());
-            }
-        });
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    System.out.println("The read failed: " + databaseError.getCode());
+                }
+            });
+        }
+
     }
 
     ArrayList<Pet> selectedPets;
@@ -98,6 +106,7 @@ public class DisplaySimilarDogs extends AppCompatActivity {
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     Pet checked = (Pet)dataSnapshot.getValue();
                     selectedPets.add(checked);
+                    Toast.makeText(DisplaySimilarDogs.this, "First pet was added", Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
@@ -113,6 +122,7 @@ public class DisplaySimilarDogs extends AppCompatActivity {
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     Pet checked = (Pet)dataSnapshot.getValue();
                     selectedPets.add(checked);
+                    Toast.makeText(DisplaySimilarDogs.this, "Second pet was added", Toast.LENGTH_SHORT).show();
                 }
 
                 @Override
@@ -128,6 +138,7 @@ public class DisplaySimilarDogs extends AppCompatActivity {
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     Pet checked = (Pet)dataSnapshot.getValue();
                     selectedPets.add(checked);
+                    Toast.makeText(DisplaySimilarDogs.this, "Third dog was added", Toast.LENGTH_SHORT).show();
                 }
 
                 @Override

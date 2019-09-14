@@ -8,6 +8,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -166,7 +167,7 @@ public class FoundDogComparison extends AppCompatActivity {
                 Iterator<DataSnapshot> lostPets = dataSnapshot.getChildren().iterator();
                 while (lostPets.hasNext()) {
                     DataSnapshot item = lostPets.next();
-                    Pet toCompare = (Pet)item.getValue();
+                    Pet toCompare = item.getValue(Pet.class); //ERROR HERE???
                     if (Pet.areSimilar(foundPet, toCompare)) {
                         similarPets.add(toCompare);
                     }
@@ -189,10 +190,30 @@ public class FoundDogComparison extends AppCompatActivity {
             }
         });
 
-        Intent intent = new Intent(this, DisplaySimilarDogs.class);
-        intent.putExtra("first", finalSimilarPets.get(0).getOwnerEmail());
-        intent.putExtra("second", finalSimilarPets.get(1).getOwnerEmail());
-        intent.putExtra("third", finalSimilarPets.get(2).getOwnerEmail());
-        startActivity(intent);
+        if (finalSimilarPets.size() == 3) {
+            Intent intent = new Intent(this, DisplaySimilarDogs.class);
+            intent.putExtra("first", finalSimilarPets.get(0).getOwnerEmail());
+            intent.putExtra("second", finalSimilarPets.get(1).getOwnerEmail());
+            intent.putExtra("third", finalSimilarPets.get(2).getOwnerEmail());
+            startActivity(intent);
+        }
+        else if (finalSimilarPets.size() == 2) {
+            Intent intent = new Intent(this, DisplaySimilarDogs.class);
+            intent.putExtra("first", finalSimilarPets.get(0).getOwnerEmail());
+            intent.putExtra("second", finalSimilarPets.get(1).getOwnerEmail());
+            intent.putExtra("third", "");
+            startActivity(intent);
+        }
+        else if (finalSimilarPets.size() == 1) {
+            Intent intent = new Intent(this, DisplaySimilarDogs.class);
+            intent.putExtra("first", finalSimilarPets.get(0).getOwnerEmail());
+            intent.putExtra("second", "");
+            intent.putExtra("third", "");
+            startActivity(intent);
+        }
+        else {
+            Toast.makeText(this, "No similar pets :(", Toast.LENGTH_SHORT).show();
+        }
+
     }
 }

@@ -32,5 +32,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void goToFound(View view) {
+        Intent intent = new Intent(this, FoundDogComparison.class);
+        startActivity(intent);
+    }
+
 
 }
