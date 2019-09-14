@@ -23,19 +23,23 @@
         android:id="@+id/btnSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="108dp"
+        android:layout_marginBottom="256dp"
         android:onClick="submitPic"
         android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="161dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnChoose"
         android:layout_width="136dp"
         android:layout_height="54dp"
-        android:layout_marginBottom="92dp"
+        android:layout_marginBottom="28dp"
         android:onClick="uploadPic"
         android:text="Choose File"
         app:layout_constraintBottom_toTopOf="@+id/btnSubmit"
-        tools:layout_editor_absoluteX="137dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -156,7 +156,6 @@ public class SpinnersInfo extends AppCompatActivity {
                 colorShade, date, location, behavior, characteristic);
         Pet.createLost(lostPet);
 
-        // NEXT STEP: NEXT F0RM INPUT IMAGE, LINK TO PET, THEN THANK YOU SCREEN
         Intent intent = new Intent(this, UploadImage.class);
         intent.putExtra("pet", lostPet);
         startActivity(intent);

@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "94522182291-6ogvb5nfid8qj7jsdfi90dp4a324krud.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bpetpatrol",
+            "certificate_hash": "842269c2d5e5627c7a3d7621554b8355b6b44c23"
+          }
+        },
+        {
           "client_id": "94522182291-ntdlo1gac4obg3k4tblui2je4hb6rs5p.apps.googleusercontent.com",
           "client_type": 3
         }

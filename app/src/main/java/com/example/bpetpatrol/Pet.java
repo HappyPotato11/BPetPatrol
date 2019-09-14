@@ -155,7 +155,8 @@ public class Pet implements Serializable {
     // pushes all pet data to the database
     public static void createLost(Pet pet) {
         DatabaseReference reff = FirebaseDatabase.getInstance().getReference().child("Lost Pets");
-        reff.child(pet.getOwnerEmail()).setValue(pet);
+        String email = pet.getOwnerEmail().replace(".", "");
+        reff.child(email).setValue(pet);
     }
 
     // returns data snapshot for a particular lost pet (identified by phone number)

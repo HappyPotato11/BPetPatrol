@@ -54,7 +54,8 @@ public class UploadImage extends AppCompatActivity {
 
     //for submitting the image, storing in database and moving on:
     public void submitPic(View view) {
-        StorageReference fullPath = FirebaseStorage.getInstance().getReference().child("Lost Pet Images").child(toPass.getOwnerEmail());
+        String email = toPass.getOwnerEmail().replace(".","");
+        StorageReference fullPath = FirebaseStorage.getInstance().getReference().child("Lost Pet Images").child(email);
         img = (ImageView)findViewById(R.id.imgPet);
 
         // Get the data from an ImageView as bytes
@@ -72,8 +73,7 @@ public class UploadImage extends AppCompatActivity {
             @Override
             public void onSuccess(Uri uri) {
                 toPass.setImage(uri.toString());
-
-                // END, TEST!!!
+                Pet.createLost(toPass);
             }
         });
     }
