@@ -32,11 +32,20 @@ public class DisplaySimilarDogs extends AppCompatActivity {
         setContentView(R.layout.activity_display_similar_dogs);
 
         Intent i = getIntent();
-        firstEmail = i.getStringExtra("first").replace(".","");
-        secondEmail = i.getStringExtra("second").replace(".","");
-        thirdEmail = i.getStringExtra("third").replace(".","");
+        firstEmail = i.getStringExtra("first");
+        if (!(firstEmail == null)) {
+            firstEmail = firstEmail.replace(".","");
+        }
+        secondEmail = i.getStringExtra("second");
+        if (!(secondEmail == null)) {
+            secondEmail = secondEmail.replace(".","");
+        }
+        thirdEmail = i.getStringExtra("third");
+        if (!(thirdEmail == null)) {
+            thirdEmail = thirdEmail.replace(".","");
+        }
 
-        if (!firstEmail.equals("")) {
+        if (!(firstEmail == null)) {
             DatabaseReference reff = FirebaseDatabase.getInstance().getReference().child("Lost Pets").child(firstEmail);
             reff.addValueEventListener(new ValueEventListener() {
                 @Override
@@ -53,7 +62,7 @@ public class DisplaySimilarDogs extends AppCompatActivity {
             });
         }
 
-        if (!secondEmail.equals("")) {
+        if (!(secondEmail == null)) {
             DatabaseReference reff2 = FirebaseDatabase.getInstance().getReference().child("Lost Pets").child(secondEmail);
             reff2.addValueEventListener(new ValueEventListener() {
                 @Override
@@ -70,13 +79,13 @@ public class DisplaySimilarDogs extends AppCompatActivity {
             });
         }
 
-        if (!thirdEmail.equals("")) {
+        if (!(thirdEmail == null)) {
             DatabaseReference reff3 = FirebaseDatabase.getInstance().getReference().child("Lost Pets").child(thirdEmail);
             reff3.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     img3 = (ImageView)findViewById(R.id.imgPet3);
-                    String downloadUrl = ((Pet)dataSnapshot.getValue()).getImage();
+                    String downloadUrl = (dataSnapshot.getValue(Pet.class)).getImage();
                     Picasso.get().load(downloadUrl).into(img3);
                 }
 

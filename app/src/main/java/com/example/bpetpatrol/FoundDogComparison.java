@@ -182,6 +182,31 @@ public class FoundDogComparison extends AppCompatActivity {
                         finalSimilarPets.add(similarPets.get(i));
                     }
                 }
+
+                if (finalSimilarPets.size() == 3) {
+                    Intent intent = new Intent(getApplicationContext(), DisplaySimilarDogs.class);
+                    intent.putExtra("first", finalSimilarPets.get(0).getOwnerEmail());
+                    intent.putExtra("second", finalSimilarPets.get(1).getOwnerEmail());
+                    intent.putExtra("third", finalSimilarPets.get(2).getOwnerEmail());
+                    startActivity(intent);
+                }
+                else if (finalSimilarPets.size() == 2) {
+                    Intent intent = new Intent(getApplicationContext(), DisplaySimilarDogs.class);
+                    intent.putExtra("first", finalSimilarPets.get(0).getOwnerEmail());
+                    intent.putExtra("second", finalSimilarPets.get(1).getOwnerEmail());
+                    intent.putExtra("third", "");
+                    startActivity(intent);
+                }
+                else if (finalSimilarPets.size() == 1) {
+                    Intent intent = new Intent(getApplicationContext(), DisplaySimilarDogs.class);
+                    intent.putExtra("first", finalSimilarPets.get(0).getOwnerEmail());
+                    intent.putExtra("second", "");
+                    intent.putExtra("third", "");
+                    startActivity(intent);
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "No similar pets :(", Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
@@ -190,30 +215,7 @@ public class FoundDogComparison extends AppCompatActivity {
             }
         });
 
-        if (finalSimilarPets.size() == 3) {
-            Intent intent = new Intent(this, DisplaySimilarDogs.class);
-            intent.putExtra("first", finalSimilarPets.get(0).getOwnerEmail());
-            intent.putExtra("second", finalSimilarPets.get(1).getOwnerEmail());
-            intent.putExtra("third", finalSimilarPets.get(2).getOwnerEmail());
-            startActivity(intent);
-        }
-        else if (finalSimilarPets.size() == 2) {
-            Intent intent = new Intent(this, DisplaySimilarDogs.class);
-            intent.putExtra("first", finalSimilarPets.get(0).getOwnerEmail());
-            intent.putExtra("second", finalSimilarPets.get(1).getOwnerEmail());
-            intent.putExtra("third", "");
-            startActivity(intent);
-        }
-        else if (finalSimilarPets.size() == 1) {
-            Intent intent = new Intent(this, DisplaySimilarDogs.class);
-            intent.putExtra("first", finalSimilarPets.get(0).getOwnerEmail());
-            intent.putExtra("second", "");
-            intent.putExtra("third", "");
-            startActivity(intent);
-        }
-        else {
-            Toast.makeText(this, "No similar pets :(", Toast.LENGTH_SHORT).show();
-        }
+
 
     }
 }

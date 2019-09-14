@@ -62,6 +62,9 @@ public class Pet implements Serializable, Comparable {
         definingCharacteristic = dc;
     }
 
+    //random
+    public Pet() {}
+
     /* for setting image */
     public void setImage(String url) {
         image = url;
@@ -115,9 +118,6 @@ public class Pet implements Serializable, Comparable {
         if (lostPet.getName().toLowerCase().equals(foundPet.getName().toLowerCase())) {
             similarCharacteristics++;
         }
-        else {
-            return false;
-        }
         if (lostPet.getAnimal() == foundPet.getAnimal()) {
             similarCharacteristics++;
         }
@@ -141,7 +141,7 @@ public class Pet implements Serializable, Comparable {
             biggerList = lostPet.getColors();
         }
         for (int i = 0; i < size; i++) {
-            if (smallerList.get(i).equals(biggerList.get(i))) {
+            if (biggerList.contains(smallerList.get(i))) {
                 similarColors++;
             }
         }
@@ -172,8 +172,4 @@ public class Pet implements Serializable, Comparable {
         return (lastSeenDate.compareTo(compareDate))*(-1);
     }
 
-    // returns data snapshot for a particular lost pet (identified by phone number)
-    public static void getLostData(String email) {
-
-    }
 }
