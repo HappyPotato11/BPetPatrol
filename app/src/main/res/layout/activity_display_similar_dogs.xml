@@ -29,6 +29,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@mipmap/ic_launcher_round" />
 
     <ImageView
@@ -48,24 +50,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="36dp"
-        android:text="CheckBox"
+        android:text="image1"
         app:layout_constraintBottom_toTopOf="@+id/imgPet3"
-        tools:layout_editor_absoluteX="83dp" />
+        app:layout_constraintEnd_toStartOf="@+id/chkPet2"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <CheckBox
         android:id="@+id/chkPet2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="99dp"
+        android:layout_height="26dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginRight="56dp"
         android:layout_marginBottom="36dp"
-        android:text="CheckBox"
+        android:text="image2"
         app:layout_constraintBottom_toTopOf="@+id/imgPet3"
-        tools:layout_editor_absoluteX="249dp" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <CheckBox
         android:id="@+id/chkPet3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CheckBox"
+        android:text="image3"
         tools:layout_editor_absoluteX="157dp"
         tools:layout_editor_absoluteY="505dp" />
 
@@ -76,8 +81,10 @@
         android:layout_marginTop="40dp"
         android:onClick="passPets"
         android:text="Done"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chkPet3" />
+        app:layout_constraintTop_toBottomOf="@+id/chkPet3"
+        app:layout_constraintVertical_bias="0.245" />
 </androidx.constraintlayout.widget.ConstraintLayout>
