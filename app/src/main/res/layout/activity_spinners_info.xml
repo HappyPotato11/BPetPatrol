@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".SpinnersInfo">
 
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="goToInfo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:srcCompat="@android:drawable/ic_dialog_info"
+        tools:layout_editor_absoluteX="328dp" />
+
     <Spinner
         android:id="@+id/spnBehavior"
         android:layout_width="230dp"

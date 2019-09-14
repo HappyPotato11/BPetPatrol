@@ -22,13 +22,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void goToLost(View view) {
+    public void goToSpinner(View view) {
         Intent intent = new Intent(this, SpinnersInfo.class);
         startActivity(intent);
     }
 
-    public void foundDog(View view) {
-        Intent intent = new Intent(this, FoundDogComparison.class);
+    public void goToInfo(View view) {
+        Intent intent = new Intent(this, Info.class);
         startActivity(intent);
     }
 

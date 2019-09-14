@@ -77,4 +77,14 @@ public class UploadImage extends AppCompatActivity {
             }
         });
     }
+
+    public void goToHome(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToInfo(View view) {
+        Intent intent = new Intent(this, Info.class);
+        startActivity(intent);
+    }
 }

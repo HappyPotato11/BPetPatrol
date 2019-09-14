@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DisplaySimilarDogs"></activity>
+        <activity android:name=".Info"></activity>
         <activity android:name=".UploadImage" />
         <activity android:name=".SpinnersInfo" />
         <activity android:name=".MainActivity">
