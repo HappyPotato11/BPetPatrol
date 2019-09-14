@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">BPetPatrol</string>
+    <string-array name="behaviors">
+        <item>aggressive</item>
+        <item>shy</item>
+        <item>excited</item>
+    </string-array>
+    <string-array name="animals">
+        <item>dog</item>
+        <item>cat</item>
+        <item>snake</item>
+        <item>hamster</item>
+        <item>pig</item>
+        <item>hedgehog</item>
+        <item>parrot</item>
+    </string-array>
+    <string-array name="shades">
+        <item>light</item>
+        <item>dark</item>
+    </string-array>
+</resources>
