@@ -54,7 +54,7 @@ public class UploadImage extends AppCompatActivity {
 
     //for submitting the image, storing in database and moving on:
     public void submitPic(View view) {
-        String email = toPass.getOwnerEmail().replace(".","");
+        String email = toPass.getEmail().replace(".","");
         StorageReference fullPath = FirebaseStorage.getInstance().getReference().child("Lost Pet Images").child(email);
         img = (ImageView)findViewById(R.id.imgPet);
 

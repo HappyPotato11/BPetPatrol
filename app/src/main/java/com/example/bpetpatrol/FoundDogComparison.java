@@ -60,6 +60,8 @@ public class FoundDogComparison extends AppCompatActivity {
     }
 
     public void submitInfo(View view) {
+
+        String email = ((TextView)findViewById(R.id.txtEmail)).getText().toString();
         String name = ((TextView)findViewById(R.id.txtName)).getText().toString();
 
         //populating animal
@@ -155,19 +157,21 @@ public class FoundDogComparison extends AppCompatActivity {
 
         String characteristic = ((TextView)findViewById(R.id.txtCharacteristic)).getText().toString();
 
-        final Pet foundPet = new Pet(name, animal, breed, colors,
-                colorShade, location, behavior, characteristic);
+        //TRYING TO FIX THIS...
+        final Pet foundPet = new Pet(email, name, animal, breed, colors,
+                colorShade, new Date(0, 0, 0), location, behavior, characteristic);
 
         //iterating through the database
         final ArrayList<Pet> similarPets = new  ArrayList<Pet>();
         final ArrayList<Pet> finalSimilarPets = new ArrayList<Pet>();
+        final String first, second, third;
         FirebaseDatabase.getInstance().getReference().child("Lost Pets").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Iterator<DataSnapshot> lostPets = dataSnapshot.getChildren().iterator();
                 while (lostPets.hasNext()) {
                     DataSnapshot item = lostPets.next();
-                    Pet toCompare = item.getValue(Pet.class); //ERROR HERE???
+                    Pet toCompare = item.getValue(Pet.class); //something is lost here????????
                     if (Pet.areSimilar(foundPet, toCompare)) {
                         similarPets.add(toCompare);
                     }
@@ -175,6 +179,7 @@ public class FoundDogComparison extends AppCompatActivity {
 
                 //sort by decreasing date
                 Collections.sort(similarPets);
+                // NEXT STEP: WHAT'S IN HERE AFTER I SORT?
 
                 //get the top 3
                 for (int i = 0; i < 3; i++) {
@@ -185,21 +190,21 @@ public class FoundDogComparison extends AppCompatActivity {
 
                 if (finalSimilarPets.size() == 3) {
                     Intent intent = new Intent(getApplicationContext(), DisplaySimilarDogs.class);
-                    intent.putExtra("first", finalSimilarPets.get(0).getOwnerEmail());
-                    intent.putExtra("second", finalSimilarPets.get(1).getOwnerEmail());
-                    intent.putExtra("third", finalSimilarPets.get(2).getOwnerEmail());
+                    intent.putExtra("first", finalSimilarPets.get(0).getEmail());
+                    intent.putExtra("second", finalSimilarPets.get(1).getEmail());
+                    intent.putExtra("third", finalSimilarPets.get(2).getEmail());
                     startActivity(intent);
                 }
                 else if (finalSimilarPets.size() == 2) {
                     Intent intent = new Intent(getApplicationContext(), DisplaySimilarDogs.class);
-                    intent.putExtra("first", finalSimilarPets.get(0).getOwnerEmail());
-                    intent.putExtra("second", finalSimilarPets.get(1).getOwnerEmail());
+                    intent.putExtra("first", finalSimilarPets.get(0).getEmail());
+                    intent.putExtra("second", finalSimilarPets.get(1).getEmail());
                     intent.putExtra("third", "");
                     startActivity(intent);
                 }
                 else if (finalSimilarPets.size() == 1) {
                     Intent intent = new Intent(getApplicationContext(), DisplaySimilarDogs.class);
-                    intent.putExtra("first", finalSimilarPets.get(0).getOwnerEmail());
+                    intent.putExtra("first", finalSimilarPets.get(0).getEmail());
                     intent.putExtra("second", "");
                     intent.putExtra("third", "");
                     startActivity(intent);

@@ -35,14 +35,17 @@ public class DisplaySimilarDogs extends AppCompatActivity {
         firstEmail = i.getStringExtra("first");
         if (!(firstEmail == null)) {
             firstEmail = firstEmail.replace(".","");
+            Toast.makeText(this, firstEmail, Toast.LENGTH_LONG).show();
         }
         secondEmail = i.getStringExtra("second");
         if (!(secondEmail == null)) {
             secondEmail = secondEmail.replace(".","");
+            Toast.makeText(this, secondEmail, Toast.LENGTH_LONG).show();
         }
         thirdEmail = i.getStringExtra("third");
         if (!(thirdEmail == null)) {
             thirdEmail = thirdEmail.replace(".","");
+            Toast.makeText(this, thirdEmail, Toast.LENGTH_LONG).show();
         }
 
         if (!(firstEmail == null)) {
@@ -51,7 +54,7 @@ public class DisplaySimilarDogs extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     img1 = (ImageView)findViewById(R.id.imgPet1);
-                    String downloadUrl = ((Pet)dataSnapshot.getValue()).getImage();
+                    String downloadUrl = dataSnapshot.getValue(Pet.class).getImage();
                     Picasso.get().load(downloadUrl).into(img1);
                 }
 
@@ -68,7 +71,7 @@ public class DisplaySimilarDogs extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     img2 = (ImageView)findViewById(R.id.imgPet2);
-                    String downloadUrl = ((Pet)dataSnapshot.getValue()).getImage();
+                    String downloadUrl = dataSnapshot.getValue(Pet.class).getImage();
                     Picasso.get().load(downloadUrl).into(img2);
                 }
 

@@ -49,6 +49,7 @@ public class Pet implements Serializable, Comparable {
         definingCharacteristic = dc;
     }
 
+    /*
     //constructor for making a FOUND pet (minus last seen date)
     public Pet(String n, Animal a, String br, ArrayList<Color> c, ColorShade cs,
                String lsl, Behavior be, String dc) {
@@ -61,6 +62,7 @@ public class Pet implements Serializable, Comparable {
         behavior = be;
         definingCharacteristic = dc;
     }
+    */
 
     //random
     public Pet() {}
@@ -104,7 +106,7 @@ public class Pet implements Serializable, Comparable {
         return lastSeenLocation;
     }
     // only used to contact
-    public String getOwnerEmail() {
+    public String getEmail() {
         return email;
     }
 
@@ -162,7 +164,7 @@ public class Pet implements Serializable, Comparable {
     // pushes all pet data to the database
     public static void createLost(Pet pet) {
         DatabaseReference reff = FirebaseDatabase.getInstance().getReference().child("Lost Pets");
-        String email = pet.getOwnerEmail().replace(".", "");
+        String email = pet.getEmail().replace(".", "");
         reff.child(email).setValue(pet);
     }
 
