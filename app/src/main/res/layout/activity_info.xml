@@ -7,42 +7,11 @@
     tools:context=".Info">
 
     <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="ReturnHome"
-        android:text="Go Back"
-        tools:layout_editor_absoluteX="139dp"
-        tools:layout_editor_absoluteY="636dp" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="260dp"
-        android:layout_height="400dp"
-        android:layout_marginStart="75dp"
-        android:layout_marginLeft="75dp"
-        android:layout_marginTop="45dp"
-        android:layout_marginEnd="76dp"
-        android:layout_marginRight="76dp"
-        android:text="Pet Patrol helps people find their lost pets worldwide. You can either choose to add a submission for a pet you have lost or an animal you think may be someone else's lost pet. If you are submitting a request for a lost pet, we will send you a notification when someone else has found an animal whose description has at least a 50% match with your pet. If you have found an animal that looks like it may be someone else's, you can submit a description of the animal you have found and we will find the three most recent matches above 50% for that animal. After you decide which most closely resembles the animal you found, we will send a notification to that person with your contact information so you can help that person reunite with his or her lost pet. :)"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="113dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="149dp"
-        android:layout_marginLeft="149dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="149dp"
-        android:layout_marginRight="149dp"
-        android:layout_marginBottom="45dp"
-        android:text="Infomation: How Pet Patrol Works"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.39" />
-
+        android:text="Button"
+        tools:layout_editor_absoluteX="153dp"
+        tools:layout_editor_absoluteY="596dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

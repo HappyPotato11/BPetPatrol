@@ -13,7 +13,5 @@ public class Info extends AppCompatActivity {
         setContentView(R.layout.activity_info);
     }
 
-    public void ReturnHome(View view){
-        super.onBackPressed();
-    }
+    public void ReturnHome(View view){ super.onBackPressed();};
 }

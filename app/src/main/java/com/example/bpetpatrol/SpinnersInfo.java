@@ -23,12 +23,12 @@ public class SpinnersInfo extends AppCompatActivity {
 
         Spinner spnB = (Spinner) findViewById(R.id.spnBehavior);
         // Create an ArrayAdapter using the string array and a default spinner layout
-            ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                    R.array.behaviors, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.behaviors, android.R.layout.simple_spinner_item);
         // Specify the layout to use when the list of choices appears
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
-            spnB.setAdapter(adapter);
+        spnB.setAdapter(adapter);
 
         Spinner spnS = (Spinner) findViewById(R.id.spnShade);
         // Create an ArrayAdapter using the string array and a default spinner layout
@@ -50,13 +50,13 @@ public class SpinnersInfo extends AppCompatActivity {
     }
 
     public void submitInfo(View view) {
-        String email = ((TextView)findViewById(R.id.txtEmail)).getText().toString();
-        String name = ((TextView)findViewById(R.id.txtName)).getText().toString();
+        String email = ((TextView) findViewById(R.id.txtEmail)).getText().toString();
+        String name = ((TextView) findViewById(R.id.txtName)).getText().toString();
 
         //populating animal
         Animal animal = null;
-        String animalString = ((Spinner)findViewById(R.id.spnAnimal)).getSelectedItem().toString();
-        switch (animalString){
+        String animalString = ((Spinner) findViewById(R.id.spnAnimal)).getSelectedItem().toString();
+        switch (animalString) {
             case "dog":
                 animal = Animal.Dog;
                 break;
@@ -80,45 +80,45 @@ public class SpinnersInfo extends AppCompatActivity {
                 break;
         }
 
-        String breed = ((TextView)findViewById(R.id.txtBreed)).getText().toString();
+        String breed = ((TextView) findViewById(R.id.txtBreed)).getText().toString();
 
         //populating colors
         ArrayList<Color> colors = new ArrayList<Color>();
-        if (((CheckBox)findViewById(R.id.chkBlack)).isChecked()) {
+        if (((CheckBox) findViewById(R.id.chkBlack)).isChecked()) {
             colors.add(Color.Black);
         }
-        if (((CheckBox)findViewById(R.id.chkBlue)).isChecked()) {
+        if (((CheckBox) findViewById(R.id.chkBlue)).isChecked()) {
             colors.add(Color.Blue);
         }
-        if (((CheckBox)findViewById(R.id.chkRed)).isChecked()) {
+        if (((CheckBox) findViewById(R.id.chkRed)).isChecked()) {
             colors.add(Color.Red);
         }
-        if (((CheckBox)findViewById(R.id.chkGreen)).isChecked()) {
+        if (((CheckBox) findViewById(R.id.chkGreen)).isChecked()) {
             colors.add(Color.Green);
         }
-        if (((CheckBox)findViewById(R.id.chkYellow)).isChecked()) {
+        if (((CheckBox) findViewById(R.id.chkYellow)).isChecked()) {
             colors.add(Color.Yellow);
         }
-        if (((CheckBox)findViewById(R.id.chkPink)).isChecked()) {
+        if (((CheckBox) findViewById(R.id.chkPink)).isChecked()) {
             colors.add(Color.Pink);
         }
-        if (((CheckBox)findViewById(R.id.chkOrange)).isChecked()) {
+        if (((CheckBox) findViewById(R.id.chkOrange)).isChecked()) {
             colors.add(Color.Orange);
         }
-        if (((CheckBox)findViewById(R.id.chkWhite)).isChecked()) {
+        if (((CheckBox) findViewById(R.id.chkWhite)).isChecked()) {
             colors.add(Color.White);
         }
-        if (((CheckBox)findViewById(R.id.chkPurple)).isChecked()) {
+        if (((CheckBox) findViewById(R.id.chkPurple)).isChecked()) {
             colors.add(Color.Purple);
         }
-        if (((CheckBox)findViewById(R.id.chkBrown)).isChecked()) {
+        if (((CheckBox) findViewById(R.id.chkBrown)).isChecked()) {
             colors.add(Color.Brown);
         }
 
         //populating shade
         ColorShade colorShade = null;
-        String colorShadeString = ((Spinner)findViewById(R.id.spnShade)).getSelectedItem().toString();
-        switch (colorShadeString){
+        String colorShadeString = ((Spinner) findViewById(R.id.spnShade)).getSelectedItem().toString();
+        switch (colorShadeString) {
             case "dark":
                 colorShade = ColorShade.Dark;
                 break;
@@ -128,17 +128,17 @@ public class SpinnersInfo extends AppCompatActivity {
         }
 
         //populating date
-        int day = Integer.parseInt(((EditText)findViewById(R.id.txtDateD)).getText().toString());
-        int month = Integer.parseInt(((EditText)findViewById(R.id.txtDateM)).getText().toString());
-        int year = Integer.parseInt(((EditText)findViewById(R.id.txtDateY)).getText().toString());
+        int day = Integer.parseInt(((EditText) findViewById(R.id.txtDateD)).getText().toString());
+        int month = Integer.parseInt(((EditText) findViewById(R.id.txtDateM)).getText().toString());
+        int year = Integer.parseInt(((EditText) findViewById(R.id.txtDateY)).getText().toString());
         Date date = new Date(day, month, year);
 
-        String location = ((TextView)findViewById(R.id.txtLocation)).getText().toString();
+        String location = ((TextView) findViewById(R.id.txtLocation)).getText().toString();
 
         //populating behavior
         Behavior behavior = null;
-        String behaviorString = ((Spinner)findViewById(R.id.spnBehavior)).getSelectedItem().toString();
-        switch (behaviorString){
+        String behaviorString = ((Spinner) findViewById(R.id.spnBehavior)).getSelectedItem().toString();
+        switch (behaviorString) {
             case "aggressive":
                 behavior = Behavior.Aggressive;
                 break;
@@ -150,7 +150,7 @@ public class SpinnersInfo extends AppCompatActivity {
                 break;
         }
 
-        String characteristic = ((TextView)findViewById(R.id.txtCharacteristic)).getText().toString();
+        String characteristic = ((TextView) findViewById(R.id.txtCharacteristic)).getText().toString();
 
         Pet lostPet = new Pet(email, name, animal, breed, colors,
                 colorShade, date, location, behavior, characteristic);
@@ -158,6 +158,11 @@ public class SpinnersInfo extends AppCompatActivity {
 
         Intent intent = new Intent(this, UploadImage.class);
         intent.putExtra("pet", lostPet);
+        startActivity(intent);
+    }
+
+    public void goToInfo(View view) {
+        Intent intent = new Intent(this, Info.class);
         startActivity(intent);
     }
 }
