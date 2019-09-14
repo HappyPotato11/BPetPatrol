@@ -162,43 +162,34 @@
         android:id="@+id/chkBlue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="74dp"
-        android:layout_marginLeft="74dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:text="Blue"
+        app:layout_constraintBottom_toTopOf="@+id/chkRed"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/spnBehavior"
         app:layout_constraintTop_toTopOf="parent" />
 
     <CheckBox
         android:id="@+id/chkRed"
         android:layout_width="59dp"
         android:layout_height="38dp"
-        android:layout_marginStart="74dp"
-        android:layout_marginLeft="74dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:text="Red"
+        app:layout_constraintBottom_toTopOf="@+id/chkGreen"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/spnBehavior"
         app:layout_constraintTop_toBottomOf="@+id/chkBlue" />
 
     <CheckBox
         android:id="@+id/chkGreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="74dp"
-        android:layout_marginLeft="74dp"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         android:text="Green"
+        app:layout_constraintBottom_toTopOf="@+id/chkOrange"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/spnBehavior"
         app:layout_constraintTop_toBottomOf="@+id/chkRed" />
 
     <CheckBox
@@ -208,6 +199,7 @@
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:text="White"
+        app:layout_constraintBottom_toTopOf="@+id/chkPurple"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chkOrange" />
 
@@ -215,15 +207,13 @@
         android:id="@+id/chkYellow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="320dp"
-        android:layout_marginLeft="320dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginRight="17dp"
         android:layout_marginBottom="26dp"
         android:text="Yellow"
         app:layout_constraintBottom_toTopOf="@+id/txtDateD"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spnAnimal"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chkPink" />
 
     <CheckBox
         android:id="@+id/chkPurple"
@@ -231,7 +221,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
+        android:layout_marginBottom="1dp"
         android:text="Purple"
+        app:layout_constraintBottom_toTopOf="@+id/chkBrown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chkWhite" />
 
@@ -239,14 +231,11 @@
         android:id="@+id/chkOrange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="74dp"
-        android:layout_marginLeft="74dp"
         android:layout_marginEnd="12dp"
         android:layout_marginRight="12dp"
         android:text="Orange"
+        app:layout_constraintBottom_toTopOf="@+id/chkWhite"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/spnShade"
         app:layout_constraintTop_toBottomOf="@+id/chkGreen" />
 
     <Button

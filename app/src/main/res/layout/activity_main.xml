@@ -10,37 +10,60 @@
         android:id="@+id/textView"
         android:layout_width="252dp"
         android:layout_height="133dp"
+        android:layout_marginStart="71dp"
+        android:layout_marginLeft="71dp"
         android:layout_marginTop="86dp"
+        android:layout_marginEnd="88dp"
+        android:layout_marginRight="88dp"
         android:text="Pet Patrol"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="71dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginLeft="160dp"
         android:layout_marginTop="150dp"
+        android:layout_marginEnd="163dp"
+        android:layout_marginRight="163dp"
         android:onClick="goToSpinner"
         android:text="Lost"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:layout_editor_absoluteX="160dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginLeft="160dp"
         android:layout_marginTop="50dp"
+        android:layout_marginEnd="163dp"
+        android:layout_marginRight="163dp"
         android:onClick="goToFound"
         android:text="Found"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        tools:layout_editor_absoluteX="160dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="337dp"
+        android:layout_marginLeft="337dp"
+        android:layout_marginTop="657dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginRight="19dp"
+        android:layout_marginBottom="23dp"
         android:onClick="goToInfo"
-        app:srcCompat="@android:drawable/ic_dialog_info"
-        tools:layout_editor_absoluteX="336dp"
-        tools:layout_editor_absoluteY="657dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_dialog_info" />
 </androidx.constraintlayout.widget.ConstraintLayout>
