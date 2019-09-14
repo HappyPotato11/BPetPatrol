@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".UploadImage">
 
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="goToInfo"
+        app:srcCompat="@android:drawable/ic_dialog_info"
+        tools:layout_editor_absoluteX="60dp"
+        tools:layout_editor_absoluteY="639dp" />
+
     <ImageView
         android:id="@+id/imgPet"
         android:layout_width="250dp"
@@ -42,4 +51,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="goToHome"
+        android:text="Finish"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="526dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
